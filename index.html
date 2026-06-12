@@ -6,6 +6,10 @@
 <title>C.Madileng web developer</title>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -15,19 +19,73 @@ body {
 /* NAVBAR */
 nav {
     background: #0b3d5c;
-    padding: 15px;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
     position: sticky;
     top: 0;
+    z-index: 1000;
 }
 
+.nav-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.nav-brand .name {
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+.nav-brand .title {
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0.85;
+}
+
+/* HAMBURGER BUTTON */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 4px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* NAV LINKS */
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
@@ -44,6 +102,11 @@ nav ul li a {
     padding: 80px 20px;
 }
 
+.hero h1 {
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    margin-bottom: 16px;
+}
+
 .btn {
     background: white;
     color: #0b3d5c;
@@ -51,6 +114,8 @@ nav ul li a {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 /* SECTIONS */
@@ -90,6 +155,48 @@ footer {
     text-align: center;
     padding: 15px;
 }
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0b3d5c;
+        padding: 10px 0;
+    }
+
+    nav ul.open {
+        display: flex;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 12px 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .hero {
+        padding: 60px 16px;
+    }
+
+    .section {
+        padding: 40px 16px;
+    }
+}
 </style>
 
 </head>
@@ -97,12 +204,20 @@ footer {
 
 <!-- NAVBAR -->
 <nav>
-    <h2>C.Madileng web developer</h2>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+    <div class="nav-brand">
+        <span class="name">C.Madileng</span>
+        <span class="title">web developer</span>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <ul id="nav-menu">
+        <li><a href="#home" onclick="closeMenu()">Home</a></li>
+        <li><a href="#services" onclick="closeMenu()">Services</a></li>
+        <li><a href="#about" onclick="closeMenu()">About</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
     </ul>
 </nav>
 
@@ -165,6 +280,21 @@ footer {
 <footer>
     <p>© 2026 C.Madileng web developer | All Rights Reserved</p>
 </footer>
+
+<script>
+    var hamburger = document.getElementById('hamburger');
+    var navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', function () {
+        hamburger.classList.toggle('open');
+        navMenu.classList.toggle('open');
+    });
+
+    function closeMenu() {
+        hamburger.classList.remove('open');
+        navMenu.classList.remove('open');
+    }
+</script>
 
 </body>
 </html>
