@@ -6,34 +6,83 @@
 <title>C.Madileng web developer</title>
 
 <style>
+:root {
+    color-scheme: light;
+    --nav-bg: #0b3d5c;
+    --text: #17324d;
+    --muted: #45607a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    scroll-behavior: smooth;
+    line-height: 1.5;
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
 }
 
 /* NAVBAR */
 nav {
-    background: #0b3d5c;
-    padding: 15px;
+    background: var(--nav-bg);
+    padding: 12px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
     color: white;
     position: sticky;
     top: 0;
+    z-index: 1000;
+}
+
+nav h2 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.15;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+nav .brand {
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+nav .role {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #dbeeff;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 16px;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 0.98rem;
 }
 
 /* HERO */
@@ -41,46 +90,83 @@ nav ul li a {
     background: linear-gradient(to right, #1e88e5, #0b3d5c);
     color: white;
     text-align: center;
-    padding: 80px 20px;
+    padding: 72px 16px 88px;
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h1 {
+    margin: 0 0 12px;
+    max-width: 700px;
+    font-size: clamp(2rem, 8vw, 3.75rem);
+    line-height: 1.08;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hero .brand {
+    font-weight: 800;
+}
+
+.hero .role {
+    font-size: clamp(1.05rem, 4vw, 1.35rem);
+    font-weight: 500;
+    color: #eff6ff;
+}
+
+.hero p {
+    max-width: 640px;
+    font-size: clamp(1rem, 3vw, 1.15rem);
+    margin: 0 auto 18px;
 }
 
 .btn {
     background: white;
     color: #0b3d5c;
-    padding: 12px 25px;
+    padding: 12px 22px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: 700;
 }
 
 /* SECTIONS */
 .section {
-    padding: 60px 20px;
+    padding: 56px 16px;
     text-align: center;
 }
 
 .services {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    justify-items: center;
+    gap: 18px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .card {
     background: #f4f6f9;
-    padding: 20px;
-    width: 250px;
-    border-radius: 10px;
+    padding: 18px;
+    width: 100%;
+    max-width: 320px;
+    border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 /* CONTACT */
 .contact a {
     display: block;
-    margin: 10px;
+    margin: 10px auto;
     color: #1e88e5;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 1rem;
+    line-height: 1.35;
+    word-break: break-word;
 }
 
 /* FOOTER */
@@ -88,7 +174,63 @@ footer {
     background: #0b3d5c;
     color: white;
     text-align: center;
-    padding: 15px;
+    padding: 16px;
+}
+
+@media (max-width: 768px) {
+    nav {
+        justify-content: center;
+        text-align: center;
+        padding: 10px;
+    }
+
+    nav h2 {
+        align-items: center;
+        width: 100%;
+        font-size: 0.95rem;
+    }
+
+    nav .brand {
+        font-size: 1rem;
+    }
+
+    nav .role {
+        font-size: 0.88rem;
+    }
+
+    nav ul {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 6px 0;
+        font-size: 0.92rem;
+    }
+
+    .hero {
+        padding-top: 48px;
+        padding-bottom: 64px;
+    }
+
+    .hero h1 {
+        max-width: 100%;
+    }
+
+    .section {
+        padding: 48px 14px;
+    }
+
+    .card {
+        max-width: 100%;
+    }
 }
 </style>
 
@@ -97,7 +239,10 @@ footer {
 
 <!-- NAVBAR -->
 <nav>
-    <h2>C.Madileng web developer</h2>
+    <h2>
+        <span class="brand">C.Madileng</span>
+        <span class="role">web developer</span>
+    </h2>
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#services">Services</a></li>
@@ -108,7 +253,10 @@ footer {
 
 <!-- HOME -->
 <section id="home" class="hero">
-    <h1>Welcome to C.Madileng web developer</h1>
+    <h1>
+        <span class="brand">C.Madileng</span>
+        <span class="role">web developer</span>
+    </h1>
     <p>Helping young entrepreneurs start and grow their businesses online.</p>
     <button class="btn" onclick="document.getElementById('services').scrollIntoView()">Explore Services</button>
 </section>
