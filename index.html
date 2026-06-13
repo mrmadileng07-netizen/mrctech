@@ -207,6 +207,8 @@ footer {
         align-items: center;
         text-align: left;
         padding: 10px 12px;
+        position: sticky;
+        top: 0;
     }
 
     nav h2 {
@@ -229,8 +231,13 @@ footer {
 
     nav .nav-links {
         display: none;
-        width: 100%;
-        margin-top: 8px;
+        width: auto;
+        position: absolute;
+        top: 56px;
+        right: 12px;
+        left: 12px;
+        margin-top: 0;
+        z-index: 1100;
     }
 
     nav .nav-links.open {
@@ -246,6 +253,7 @@ footer {
         background: rgba(11, 61, 92, 0.98);
         padding: 10px;
         border-radius: 10px;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
     }
 
     nav ul li {
@@ -284,7 +292,7 @@ footer {
 <!-- NAVBAR -->
 <nav>
     <h2>
-        <span class="brand">C.Madileng</span>
+        <span class="brand">C.MADILENG</span>
         <span class="role">web developer</span>
     </h2>
 
@@ -307,10 +315,10 @@ footer {
 <!-- HOME -->
 <section id="home" class="hero">
     <h1>
-        <span class="brand">C.Madileng</span>
+        <span class="brand">C.MADILENG</span>
         <span class="role">web developer</span>
     </h1>
-    <p>Helping young entrepreneurs start and grow their businesses online.</p>
+    <p>We design websites, create graphics, and help you register your business professionally.</p>
     <button class="btn" onclick="document.getElementById('services').scrollIntoView()">Explore Services</button>
 </section>
 
@@ -319,16 +327,16 @@ footer {
     <h2>Our Services</h2>
     <div class="services">
         <div class="card">
-            <h3>Company Registration</h3>
-            <p>We help you register your business quickly and professionally.</p>
+            <h3>Professional Web Design Solutions</h3>
+            <p>Build modern, mobile-friendly websites that help your business look professional online.</p>
         </div>
         <div class="card">
-            <h3>Online Selling Setup</h3>
-            <p>Start selling online like Takealot and reach more customers.</p>
+            <h3>High-Quality Graphic Design Services</h3>
+            <p>Create logos, banners, flyers, and visuals that make your brand stand out.</p>
         </div>
         <div class="card">
-            <h3>Business Support</h3>
-            <p>Guidance and support to grow your business successfully.</p>
+            <h3>Business & Company Registration Support</h3>
+            <p>Get expert help to register and start your business professionally and with confidence.</p>
         </div>
     </div>
 </section>
@@ -337,12 +345,13 @@ footer {
 <section id="about" class="section" style="background:#e3f2fd;">
     <h2>About Us</h2>
     <p>
-        C.Madileng web developer is an online business focused on helping young people 
-        start their own companies and succeed in online selling.
+        Cmadileng is a digital service provider specializing in website design, graphic design,
+        and company registration. We help individuals and businesses build a strong online
+        presence and start their businesses professionally and easily.
     </p>
     <p>
-        We provide affordable services, expert advice, and simple solutions 
-        to help you become your own boss.
+        We provide affordable, simple, and reliable support so you can grow your brand and
+        launch your business with confidence.
     </p>
 </section>
 
