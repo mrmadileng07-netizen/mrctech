@@ -68,6 +68,11 @@ nav .role {
     color: #dbeeff;
 }
 
+nav .nav-links {
+    display: flex;
+    align-items: center;
+}
+
 nav ul {
     list-style: none;
     display: flex;
@@ -83,6 +88,25 @@ nav ul li a {
     text-decoration: none;
     font-weight: 700;
     font-size: 0.98rem;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    background: transparent;
+    border: 0;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    border-radius: 999px;
+    background: white;
 }
 
 /* HERO */
@@ -179,14 +203,15 @@ footer {
 
 @media (max-width: 768px) {
     nav {
-        justify-content: center;
-        text-align: center;
-        padding: 10px;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 10px 12px;
     }
 
     nav h2 {
-        align-items: center;
-        width: 100%;
+        align-items: flex-start;
+        width: auto;
         font-size: 0.95rem;
     }
 
@@ -198,15 +223,34 @@ footer {
         font-size: 0.88rem;
     }
 
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav .nav-links {
+        display: none;
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    nav .nav-links.open {
+        display: block;
+    }
+
     nav ul {
         width: 100%;
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         gap: 6px;
+        background: rgba(11, 61, 92, 0.98);
+        padding: 10px;
+        border-radius: 10px;
     }
 
     nav ul li {
         margin: 0;
+        width: 100%;
     }
 
     nav ul li a {
@@ -243,12 +287,21 @@ footer {
         <span class="brand">C.Madileng</span>
         <span class="role">web developer</span>
     </h2>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="nav-links" id="nav-links">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
 </nav>
 
 <!-- HOME -->
@@ -314,6 +367,7 @@ footer {
     <p>© 2026 C.Madileng web developer | All Rights Reserved</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
 
